@@ -1,0 +1,75 @@
+package protobuf;
+
+// see doc/proto.md
+// protoc --go_out=. msg.proto
+
+      //自增的, 如果是file就是int的自增，如果是dir就是里面的文件的自己增。dir:abc -> (dir:abc_0, dir:abc_1)
+      //请求必须发送到leader去请求，以避免同步不及时造成的int错误
+
+  enum Verb {
+      GET        = 0x00000001;
+      SET        = 0x00000002;
+      DEL        = 0x00000004;//delete WATCH don't use pat
+
+      CREATE     = 0x00000100; //DIR
+      PERSISTENT = 0x00000200; //持久
+      EPHEMERAL  = 0x00000400; //零时，设置的人挂了，这个值就挂了
+      SEQUENTIAL = 0x00000800; //
+      NUMBER     = 0x00002000; //
+      DIR        = 0x00001000; //SET, DEL, GET
+
+      WATCH      = 0x00010000; //SET, DEL .
+      WATCH_ALL  = 0x00020000; //SET, DEL .
+      WATCH_PUSH = 0x00040000; //SET, DEL .
+
+      SERVER     = 0x10000000; //raftX和lib通讯的协议
+      NONE       = 0x10000001;
+  }
+
+  enum Err {
+      // don't use value 0
+      OK           = 0;
+      UNKNOWN_VERB = 2;
+      READ_ONLY     = 3;
+      TIME_OUT     = 4;
+      BAD_PATH     = 6;
+      NOT_LEADER     = 7;
+      NOT_DIR       = 20;
+      IS_DIR        = 21;
+      BAD_PATH_PAT     = 22;
+      UNKNOWN     = 23;
+      DATA_MUST_BE_NUMBER     = 24;
+      ONE_ITEM_OF_DIR_IS_FILE     = 26;
+      LAST_FILE_IS_DIR_ALREADY     = 27;
+      FILE_ATTR_NOT_IS_INCREASE     = 28;
+      DIR_CANT_REMOVE     = 29;
+      JSON_MARSHAL     = 30;
+      ROOT_IS_READONLY     = 31;
+      PATH_FILE_ATTR     = 32;
+      UNSIGNINT_ERR     = 34;
+      RET_LESS_OF_ZERO     = 35;
+      EXIST     = 1033;
+      NOT_EXIST     = 1025;
+      OTHER        = 127;
+      ERR        = 128;
+      PROTO_MARSHAL        = 129;
+    }
+
+message Request {
+  optional string tag = 1;
+  optional uint32 verb = 2;
+  optional string path = 3;
+  optional string value = 4;
+}
+
+// see doc/proto.md
+message Response {
+  optional string tag = 1;
+  optional uint32 verb = 2;
+  optional string path = 3;
+  optional string value = 4;
+  optional string cnt = 5;
+
+  optional Err errCode = 100;
+  optional string errDes = 101;
+}
