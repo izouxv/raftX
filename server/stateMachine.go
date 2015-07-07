@@ -4,7 +4,7 @@ import (
 	//	"io/ioutil"
 	//	"os"
 	//	log "code.google.com/p/log4go"
-	"fish.red/zouxu/goall/raftx/server/db"
+	"github.com/izouxv/raftX/server/db"
 )
 
 type FsStateMachine struct {

@@ -8,7 +8,7 @@ import (
 	"math/rand"
 	"log"
 	"encoding/json"
-	."fish.red/zouxu/goall/raftx/common/protobuf"
+	."github.com/izouxv/raftX/common/protobuf"
 	"sync"
 	"runtime"
 )

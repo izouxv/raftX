@@ -13,10 +13,10 @@ import (
 	"github.com/stretchr/testify/assert"
 	"strconv"
 	"github.com/cheggaaa/pb"
-	"fish.red/zouxu/goall/raftx/server"
-	"fish.red/zouxu/goall/raftx/server/command"
-	"fish.red/zouxu/goall/raftx/client"
-	"fish.red/zouxu/goall/raftx/common/protobuf"
+	"github.com/izouxv/raftX/server"
+	"github.com/izouxv/raftX/server/command"
+	"github.com/izouxv/raftX/client"
+	"github.com/izouxv/raftX/common/protobuf"
 )
 
 type DOT func()

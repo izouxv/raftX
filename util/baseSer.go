@@ -28,15 +28,6 @@ import (
 //                 (o o)
 //        -----oOOo-(_)-oOOo-----
 //
-//如果ser里的cb被堵塞，这个ser的cliitem就会的input就会被堵塞，是不是需要一种chan来统一处理这些消息？需要思考一下，
-//是否需要一个消息队列，非常短时间后去读取这个队列，如果发送了读取队列消息后，定时期间的消息就不需要再发送读取的时间了？
-
-//想了一下outputgo做成可变个数，但是有些问题,在outputgo变化时，有部分数据会错误，Maybe，要看这个数据调用多少次conn write
-//发送的时候conn是好的，sendAction的时候挂了，这可能有问题，因为上层不知道这个conn挂了
-//心跳需要自己来维持
-
-//可以使用SetReadDeadline来做心跳超时
-//统一的Q会出现多个go同时写一个conn的情况，数据出现乱序
 
 var syncPoolMap []*sync.Pool
 var syncPoolKey []int

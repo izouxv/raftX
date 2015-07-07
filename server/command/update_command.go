@@ -2,7 +2,7 @@ package command
 
 import (
 	"github.com/goraft/raft"
-	"fish.red/zouxu/goall/raftx/server/db"
+	"github.com/izouxv/raftX/server/db"
 )
 
 // This command writes a value to a key.

@@ -8,8 +8,8 @@ import (
 	"encoding/json"
 	//"log"
 	"strconv"
-	."fish.red/zouxu/goall/raftx/common/protobuf"
-	."fish.red/zouxu/goall/raftx/server/glob"
+	."github.com/izouxv/raftX/common/protobuf"
+	."github.com/izouxv/raftX/server/glob"
 )
 
 //可以考虑获取dir[]＋file的方式来做

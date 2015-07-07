@@ -15,11 +15,11 @@ import (
 	"github.com/golang/protobuf/proto"
 	"time"
 	"strings"
-	"fish.red/zouxu/goall/raftx/server/command"
-	."fish.red/zouxu/goall/raftx/common/protobuf"
-	."fish.red/zouxu/goall/raftx/util"
-	."fish.red/zouxu/goall/raftx/common/request"
-	"fish.red/zouxu/goall/raftx/server/db"
+	"github.com/izouxv/raftX/server/command"
+	."github.com/izouxv/raftX/common/protobuf"
+	."github.com/izouxv/raftX/util"
+	."github.com/izouxv/raftX/common/request"
+	"github.com/izouxv/raftX/server/db"
 
 )
 

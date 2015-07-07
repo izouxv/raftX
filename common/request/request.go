@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 	"runtime/debug"
-	."fish.red/zouxu/goall/raftx/common/protobuf"
+	."github.com/izouxv/raftX/common/protobuf"
 )
 
 var IncreateTag uint64
